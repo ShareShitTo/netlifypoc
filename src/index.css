@@ -1,0 +1,496 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Press+Start+2P&family=VT323&family=Manrope:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Share+Tech+Mono&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 66% 98%;
+    --foreground: 222 25% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 14%;
+    --brand: 17 90% 56%;
+    --brand-foreground: 0 0% 100%;
+    --accent: 190 74% 88%;
+    --accent-foreground: 221 27% 16%;
+    --muted: 42 35% 94%;
+    --muted-foreground: 221 12% 38%;
+    --border: 214 22% 86%;
+    --input: 214 22% 86%;
+    --ring: 17 90% 56%;
+    --canvas: 40 100% 99%;
+    --radius: 1rem;
+    --font-sans: "Space Grotesk";
+    --font-serif: "DM Serif Display";
+    --font-mono: "JetBrains Mono";
+    --type-base-scale: 1;
+    --bg-image:
+      radial-gradient(circle at 10% 4%, hsl(var(--brand) / 0.2), transparent 36%),
+      radial-gradient(circle at 88% 8%, hsl(198 100% 40% / 0.15), transparent 36%),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--canvas)) 100%);
+    --bg-image-static: var(--bg-image);
+    --bg-image-animated: var(--bg-image-static);
+    --bg-image-active: var(--bg-image-static);
+    --bg-size: auto;
+    --bg-attachment: fixed;
+    --bg-repeat: no-repeat;
+  }
+
+  :root[data-theme="sunrise-default"] {
+    --font-sans: "Space Grotesk";
+    --font-serif: "DM Serif Display";
+    --font-mono: "JetBrains Mono";
+    --type-base-scale: 1;
+  }
+
+  :root[data-theme="midnight-ink"] {
+    --background: 224 35% 10%;
+    --foreground: 214 33% 92%;
+    --card: 224 33% 14%;
+    --card-foreground: 214 33% 92%;
+    --brand: 194 92% 55%;
+    --brand-foreground: 222 30% 9%;
+    --accent: 265 56% 30%;
+    --accent-foreground: 220 26% 94%;
+    --muted: 224 23% 20%;
+    --muted-foreground: 216 21% 74%;
+    --border: 223 22% 29%;
+    --input: 223 22% 29%;
+    --ring: 194 92% 55%;
+    --canvas: 224 38% 8%;
+    --bg-image:
+      radial-gradient(circle at 12% 12%, hsl(var(--brand) / 0.3), transparent 42%),
+      radial-gradient(circle at 86% 14%, hsl(279 85% 60% / 0.2), transparent 36%),
+      linear-gradient(180deg, hsl(224 43% 10%) 0%, hsl(224 41% 7%) 100%);
+  }
+
+  :root[data-theme="slate-contrast"] {
+    --background: 220 13% 12%;
+    --foreground: 210 20% 96%;
+    --card: 220 13% 17%;
+    --card-foreground: 210 20% 96%;
+    --brand: 35 92% 58%;
+    --brand-foreground: 222 24% 13%;
+    --accent: 210 19% 26%;
+    --accent-foreground: 210 20% 96%;
+    --muted: 219 14% 24%;
+    --muted-foreground: 210 11% 78%;
+    --border: 216 11% 34%;
+    --input: 216 11% 34%;
+    --ring: 35 92% 58%;
+    --canvas: 220 14% 10%;
+    --bg-image:
+      radial-gradient(circle at 10% 12%, hsl(38 100% 62% / 0.14), transparent 35%),
+      linear-gradient(180deg, hsl(220 13% 13%) 0%, hsl(222 14% 9%) 100%);
+  }
+
+  :root[data-theme="paper-studio"] {
+    --background: 42 40% 97%;
+    --foreground: 214 35% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 214 35% 18%;
+    --brand: 213 93% 47%;
+    --brand-foreground: 210 40% 98%;
+    --accent: 42 76% 88%;
+    --accent-foreground: 220 31% 17%;
+    --muted: 40 41% 94%;
+    --muted-foreground: 215 18% 37%;
+    --border: 215 30% 84%;
+    --input: 215 30% 84%;
+    --ring: 213 93% 47%;
+    --canvas: 44 56% 98%;
+    --font-sans: "Manrope";
+    --font-serif: "Fraunces";
+    --font-mono: "JetBrains Mono";
+    --type-base-scale: 1;
+    --bg-image:
+      radial-gradient(circle at 18% 8%, hsl(213 93% 47% / 0.12), transparent 34%),
+      radial-gradient(circle at 82% 10%, hsl(37 92% 58% / 0.1), transparent 30%),
+      linear-gradient(180deg, hsl(42 40% 97%) 0%, hsl(45 63% 98%) 100%);
+  }
+
+  :root[data-theme="obsidian-luxe"] {
+    --background: 225 18% 11%;
+    --foreground: 38 26% 92%;
+    --card: 225 16% 15%;
+    --card-foreground: 38 26% 92%;
+    --brand: 33 96% 60%;
+    --brand-foreground: 227 18% 12%;
+    --accent: 223 14% 24%;
+    --accent-foreground: 38 26% 92%;
+    --muted: 224 13% 20%;
+    --muted-foreground: 33 17% 71%;
+    --border: 223 12% 30%;
+    --input: 223 12% 30%;
+    --ring: 33 96% 60%;
+    --canvas: 224 22% 9%;
+    --font-sans: "Manrope";
+    --font-serif: "Fraunces";
+    --font-mono: "JetBrains Mono";
+    --type-base-scale: 0.99;
+    --bg-image:
+      radial-gradient(circle at 78% 2%, hsl(33 96% 60% / 0.14), transparent 34%),
+      linear-gradient(180deg, hsl(226 18% 13%) 0%, hsl(227 19% 8%) 100%);
+  }
+
+  :root[data-theme="retro-8bit"] {
+    --background: 236 34% 8%;
+    --foreground: 73 100% 88%;
+    --card: 235 31% 14%;
+    --card-foreground: 73 100% 88%;
+    --brand: 333 100% 62%;
+    --brand-foreground: 57 100% 11%;
+    --accent: 188 100% 37%;
+    --accent-foreground: 74 100% 92%;
+    --muted: 235 28% 19%;
+    --muted-foreground: 73 49% 72%;
+    --border: 245 24% 35%;
+    --input: 245 24% 35%;
+    --ring: 333 100% 62%;
+    --canvas: 237 37% 7%;
+    --font-sans: "Press Start 2P";
+    --font-serif: "Press Start 2P";
+    --font-mono: "Press Start 2P";
+    --type-base-scale: 0.9;
+    --bg-image:
+      linear-gradient(90deg, hsl(333 100% 62% / 0.12) 1px, transparent 1px),
+      linear-gradient(hsl(188 100% 37% / 0.12) 1px, transparent 1px),
+      linear-gradient(180deg, hsl(239 48% 12%) 0%, hsl(239 58% 8%) 100%);
+    --bg-size: 20px 20px, 20px 20px, auto;
+    --bg-repeat: repeat, repeat, no-repeat;
+  }
+
+  :root[data-theme="hacker-green"] {
+    --background: 130 48% 4%;
+    --foreground: 120 65% 76%;
+    --card: 130 50% 7%;
+    --card-foreground: 120 65% 76%;
+    --brand: 122 95% 59%;
+    --brand-foreground: 130 50% 7%;
+    --accent: 140 53% 14%;
+    --accent-foreground: 120 65% 76%;
+    --muted: 130 36% 11%;
+    --muted-foreground: 122 31% 62%;
+    --border: 126 28% 24%;
+    --input: 126 28% 24%;
+    --ring: 122 95% 59%;
+    --canvas: 130 57% 3%;
+    --font-sans: "JetBrains Mono";
+    --font-serif: "JetBrains Mono";
+    --font-mono: "JetBrains Mono";
+    --type-base-scale: 1.01;
+    --bg-image:
+      radial-gradient(circle at 50% -20%, hsl(122 95% 59% / 0.08), transparent 60%),
+      linear-gradient(180deg, hsl(130 48% 5%) 0%, hsl(130 63% 3%) 100%);
+  }
+
+  :root[data-theme="console-amber"] {
+    --background: 35 35% 8%;
+    --foreground: 40 92% 72%;
+    --card: 31 31% 12%;
+    --card-foreground: 40 92% 72%;
+    --brand: 40 100% 55%;
+    --brand-foreground: 35 35% 8%;
+    --accent: 33 41% 19%;
+    --accent-foreground: 41 95% 74%;
+    --muted: 30 30% 18%;
+    --muted-foreground: 38 58% 62%;
+    --border: 33 26% 31%;
+    --input: 33 26% 31%;
+    --ring: 40 100% 55%;
+    --canvas: 34 39% 6%;
+    --font-sans: "VT323";
+    --font-serif: "VT323";
+    --font-mono: "VT323";
+    --type-base-scale: 1.08;
+    --bg-image:
+      repeating-linear-gradient(
+        180deg,
+        hsl(40 86% 53% / 0.03) 0px,
+        hsl(40 86% 53% / 0.03) 1px,
+        transparent 1px,
+        transparent 3px
+      ),
+      linear-gradient(180deg, hsl(33 36% 9%) 0%, hsl(33 47% 5%) 100%);
+    --bg-size: auto;
+    --bg-repeat: repeat, no-repeat;
+  }
+
+  :root[data-theme="operator-blue"] {
+    --background: 222 62% 8%;
+    --foreground: 197 100% 85%;
+    --card: 222 52% 13%;
+    --card-foreground: 197 100% 85%;
+    --brand: 192 100% 57%;
+    --brand-foreground: 224 52% 10%;
+    --accent: 216 45% 23%;
+    --accent-foreground: 197 100% 89%;
+    --muted: 221 32% 18%;
+    --muted-foreground: 201 36% 68%;
+    --border: 216 30% 29%;
+    --input: 216 30% 29%;
+    --ring: 192 100% 57%;
+    --canvas: 223 67% 6%;
+    --font-sans: "Share Tech Mono";
+    --font-serif: "Share Tech Mono";
+    --font-mono: "Share Tech Mono";
+    --type-base-scale: 1.01;
+    --bg-image:
+      radial-gradient(circle at 10% 0%, hsl(192 100% 57% / 0.16), transparent 40%),
+      repeating-linear-gradient(
+        180deg,
+        hsl(197 100% 85% / 0.03) 0px,
+        hsl(197 100% 85% / 0.03) 1px,
+        transparent 1px,
+        transparent 4px
+      ),
+      linear-gradient(180deg, hsl(223 61% 9%) 0%, hsl(223 74% 5%) 100%);
+    --bg-size: auto;
+    --bg-repeat: no-repeat, repeat, no-repeat;
+  }
+
+  :root[data-theme="crt-violet"] {
+    --background: 262 45% 9%;
+    --foreground: 283 85% 86%;
+    --card: 261 42% 13%;
+    --card-foreground: 283 85% 86%;
+    --brand: 283 91% 70%;
+    --brand-foreground: 262 45% 9%;
+    --accent: 262 39% 21%;
+    --accent-foreground: 290 100% 92%;
+    --muted: 261 29% 19%;
+    --muted-foreground: 276 45% 72%;
+    --border: 263 27% 30%;
+    --input: 263 27% 30%;
+    --ring: 283 91% 70%;
+    --canvas: 262 53% 7%;
+    --font-sans: "VT323";
+    --font-serif: "VT323";
+    --font-mono: "Share Tech Mono";
+    --type-base-scale: 1.06;
+    --bg-image:
+      radial-gradient(circle at 8% 8%, hsl(283 91% 70% / 0.13), transparent 28%),
+      repeating-linear-gradient(
+        180deg,
+        hsl(283 85% 86% / 0.035) 0px,
+        hsl(283 85% 86% / 0.035) 1px,
+        transparent 1px,
+        transparent 3px
+      ),
+      linear-gradient(180deg, hsl(262 42% 11%) 0%, hsl(263 57% 6%) 100%);
+    --bg-size: auto;
+    --bg-repeat: no-repeat, repeat, no-repeat;
+  }
+
+  :root[data-theme="geocities-neon"] {
+    --background: 314 100% 96%;
+    --foreground: 235 54% 21%;
+    --card: 0 0% 100%;
+    --card-foreground: 235 54% 21%;
+    --brand: 323 96% 56%;
+    --brand-foreground: 0 0% 100%;
+    --accent: 176 96% 82%;
+    --accent-foreground: 245 37% 19%;
+    --muted: 60 100% 92%;
+    --muted-foreground: 257 25% 39%;
+    --border: 280 63% 77%;
+    --input: 280 63% 77%;
+    --ring: 323 96% 56%;
+    --canvas: 304 100% 97%;
+    --font-sans: "Comic Sans MS";
+    --font-serif: "DM Serif Display";
+    --font-mono: "JetBrains Mono";
+    --type-base-scale: 1.02;
+    --bg-image:
+      url("https://www.toptal.com/designers/subtlepatterns/uploads/prism.png"),
+      linear-gradient(135deg, hsl(312 100% 92%) 0%, hsl(186 100% 90%) 100%);
+    --bg-size: 320px 320px, auto;
+    --bg-repeat: repeat, no-repeat;
+    --bg-attachment: fixed, fixed;
+  }
+
+  :root[data-theme="geocities-starry"] {
+    --background: 246 63% 8%;
+    --foreground: 179 100% 86%;
+    --card: 246 53% 13%;
+    --card-foreground: 179 100% 86%;
+    --brand: 297 100% 67%;
+    --brand-foreground: 257 70% 11%;
+    --accent: 193 87% 40%;
+    --accent-foreground: 190 100% 92%;
+    --muted: 248 42% 19%;
+    --muted-foreground: 208 40% 72%;
+    --border: 249 33% 34%;
+    --input: 249 33% 34%;
+    --ring: 297 100% 67%;
+    --canvas: 246 65% 6%;
+    --font-sans: "Space Grotesk";
+    --font-serif: "DM Serif Display";
+    --font-mono: "JetBrains Mono";
+    --type-base-scale: 1;
+    --bg-image:
+      url("https://www.toptal.com/designers/subtlepatterns/uploads/stardust.png"),
+      radial-gradient(circle at 18% 10%, hsl(297 100% 67% / 0.28), transparent 34%),
+      linear-gradient(180deg, hsl(248 58% 10%) 0%, hsl(245 64% 6%) 100%);
+    --bg-size: 180px 180px, auto, auto;
+    --bg-repeat: repeat, no-repeat, no-repeat;
+  }
+
+  :root[data-theme="y2k-clouds-gif"] {
+    --background: 196 100% 96%;
+    --foreground: 242 39% 24%;
+    --card: 0 0% 100%;
+    --card-foreground: 242 39% 24%;
+    --brand: 314 97% 58%;
+    --brand-foreground: 0 0% 100%;
+    --accent: 186 87% 84%;
+    --accent-foreground: 242 39% 24%;
+    --muted: 47 95% 92%;
+    --muted-foreground: 248 22% 43%;
+    --border: 278 63% 80%;
+    --input: 278 63% 80%;
+    --ring: 314 97% 58%;
+    --canvas: 204 100% 98%;
+    --font-sans: "Manrope";
+    --font-serif: "Fraunces";
+    --font-mono: "JetBrains Mono";
+    --type-base-scale: 1.01;
+    --bg-image-static:
+      linear-gradient(130deg, hsl(313 100% 92% / 0.85), hsl(188 100% 90% / 0.84)),
+      url("https://www.toptal.com/designers/subtlepatterns/uploads/prism.png"),
+      linear-gradient(180deg, hsl(198 100% 97%) 0%, hsl(205 100% 99%) 100%);
+    --bg-image-animated:
+      linear-gradient(130deg, hsl(313 100% 92% / 0.84), hsl(188 100% 90% / 0.82)),
+      url("https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif"),
+      linear-gradient(180deg, hsl(198 100% 97%) 0%, hsl(205 100% 99%) 100%);
+    --bg-image-active: var(--bg-image-animated);
+    --bg-size: auto, 420px 420px, auto;
+    --bg-repeat: no-repeat, repeat, no-repeat;
+    --bg-attachment: fixed, fixed, fixed;
+  }
+
+  :root[data-theme="neon-stars-gif"] {
+    --background: 245 58% 10%;
+    --foreground: 190 100% 88%;
+    --card: 245 47% 14%;
+    --card-foreground: 190 100% 88%;
+    --brand: 297 100% 70%;
+    --brand-foreground: 248 58% 10%;
+    --accent: 197 90% 37%;
+    --accent-foreground: 194 100% 92%;
+    --muted: 246 35% 21%;
+    --muted-foreground: 213 45% 74%;
+    --border: 247 30% 34%;
+    --input: 247 30% 34%;
+    --ring: 297 100% 70%;
+    --canvas: 246 63% 7%;
+    --font-sans: "Space Grotesk";
+    --font-serif: "DM Serif Display";
+    --font-mono: "JetBrains Mono";
+    --type-base-scale: 1;
+    --bg-image-static:
+      radial-gradient(circle at 14% 8%, hsl(297 100% 70% / 0.28), transparent 26%),
+      url("https://www.toptal.com/designers/subtlepatterns/uploads/stardust.png"),
+      linear-gradient(180deg, hsl(246 58% 10%) 0%, hsl(247 65% 6%) 100%);
+    --bg-image-animated:
+      radial-gradient(circle at 14% 8%, hsl(297 100% 70% / 0.3), transparent 26%),
+      url("https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.gif"),
+      linear-gradient(180deg, hsl(246 58% 10%) 0%, hsl(247 65% 6%) 100%);
+    --bg-image-active: var(--bg-image-animated);
+    --bg-size: auto, 360px 360px, auto;
+    --bg-repeat: no-repeat, repeat, no-repeat;
+    --bg-attachment: fixed, fixed, fixed;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply min-h-screen bg-canvas text-foreground antialiased;
+    background-image: var(--bg-image-active, var(--bg-image));
+    background-size: var(--bg-size);
+    background-repeat: var(--bg-repeat);
+    background-attachment: var(--bg-attachment);
+    font-size: calc(16px * var(--type-base-scale));
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .font-serif {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme="y2k-clouds-gif"],
+  :root[data-theme="neon-stars-gif"] {
+    --bg-image-active: var(--bg-image-static);
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48 0H0V48' stroke='%23d0d7e3' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 48px 48px;
+  }
+}
+
+@layer components {
+  .markdown-preview h1 {
+    @apply mb-3 mt-1 text-3xl font-serif;
+  }
+
+  .markdown-preview h2 {
+    @apply mb-2 mt-4 text-2xl font-semibold;
+  }
+
+  .markdown-preview h3 {
+    @apply mb-2 mt-4 text-xl font-semibold;
+  }
+
+  .markdown-preview p {
+    @apply mb-3 leading-7;
+  }
+
+  .markdown-preview ul,
+  .markdown-preview ol {
+    @apply mb-3 ml-5 list-outside;
+  }
+
+  .markdown-preview ul {
+    @apply list-disc;
+  }
+
+  .markdown-preview ol {
+    @apply list-decimal;
+  }
+
+  .markdown-preview blockquote {
+    @apply mb-3 border-l-4 border-border pl-3 italic text-muted-foreground;
+  }
+
+  .markdown-preview code {
+    @apply rounded bg-muted px-1.5 py-0.5 font-mono text-sm;
+  }
+
+  .markdown-preview pre {
+    @apply mb-3 overflow-x-auto rounded-xl bg-slate-900 p-3 text-slate-100;
+  }
+
+  .markdown-preview pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  .markdown-preview a {
+    @apply text-brand underline decoration-brand/40 underline-offset-4;
+  }
+}

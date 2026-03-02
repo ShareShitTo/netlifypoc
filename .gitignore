@@ -1,0 +1,24 @@
+node_modules
+dist
+.DS_Store
+
+# Local Netlify folder
+.netlify
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# TypeScript project build artifacts
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+tailwind.config.js
+tailwind.config.d.ts
+
+# Common local noise
+*.log
+
+# Deno lockfile (not used in this project)
+deno.lock

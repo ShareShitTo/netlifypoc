@@ -1,0 +1,43 @@
+[build]
+  command = "pnpm build"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[dev]
+  framework = "#custom"
+  command = "pnpm dev"
+  targetPort = 5173
+  publish = "."
+
+[context.production.environment]
+  VITE_APP_ENV = "production"
+
+[context.deploy-preview.environment]
+  VITE_APP_ENV = "preview"
+
+[context.branch-deploy.environment]
+  VITE_APP_ENV = "branch"
+
+[context.qa]
+  branch = "qa"
+
+[context.qa.environment]
+  VITE_APP_ENV = "qa"
+
+[[context.production.redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[context.deploy-preview.redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[context.branch-deploy.redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -8,6 +8,19 @@ local changes -> Git commit -> GitHub push -> Netlify deploy
 
 It exists to prove that workflow end-to-end, not to represent the full production project.
 
+## One-Click Deploy (Recommended)
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ShareShitTo/netlifypoc&fullConfiguration=true)
+
+If you want the fastest setup with minimal terminal work:
+
+1. Click the Deploy to Netlify button.
+2. Authorize Netlify with your Git provider if prompted.
+3. Confirm the site settings and environment values.
+4. Click Deploy.
+
+Netlify will create your own copy and deploy it to your account.
+
 ## Longer Pitch
 
 http://ShareShit.to is a self-hosted sharing tool for text, images, and files that you can deploy on Netlify, Cloudflare, Vercel, a VPS, or wherever you prefer.
